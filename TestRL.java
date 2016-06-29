@@ -180,7 +180,7 @@ public class TestRL {
 		TestRL test = new TestRL() ;
 		test.InitNet() ;
 		
-		for(int m = 0 ; m < 1000 ; m++){
+		for(int m = 0 ; m < 10000 ; m++){
 			System.out.println("Episode: " + m) ;
 			float CurrMap[][] = test.GenerateMap() ;
 			test.FrameBuffer = CurrMap ;
