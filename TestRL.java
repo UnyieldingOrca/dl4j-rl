@@ -14,8 +14,6 @@ import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 import org.nd4j.linalg.lossfunctions.LossFunctions.LossFunction;
 
-import com.dap.routines.basic.SystemRoutines;
-
 public class TestRL {
 
 	DeepQNetwork RLNet;
@@ -110,26 +108,38 @@ public class TestRL {
 		if( action == 0 ){
 			if(player - size >= 0)
 				nextMap[(player-size)/size][player%size] = 1;
-			else
-				SystemRoutines.Exit("Bad Move");
+			else {
+				System.err.println("Bad Move");
+				System.out.println("");
+				System.exit( 3 );
+			}
 		}
 		else if( action == 1 ){
 			if(player + size < size * size)
 				nextMap[(player+size)/size][player%size] = 1;
-			else
-				SystemRoutines.Exit("Bad Move");
+			else {
+				System.err.println("Bad Move");
+				System.out.println("");
+				System.exit( 3 );
+			}
 		}
 		else if( action == 2 ){
 			if((player%size) - 1 >= 0)
 				nextMap[player/size][(player%size) - 1] = 1;
-			else
-				SystemRoutines.Exit("Bad Move");
+			else {
+				System.err.println("Bad Move");
+				System.out.println("");
+				System.exit( 3 );
+			}
 		}
 		else if( action == 3 ){
 			if((player%size) + 1 < size)
 				nextMap[player/size][(player%size) + 1] = 1;
-			else
-				SystemRoutines.Exit("Bad Move");
+			else {
+				System.err.println("Bad Move");
+				System.out.println("");
+				System.exit( 3 );
+			}
 		}
 		return nextMap;
 	}
